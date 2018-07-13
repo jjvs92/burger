@@ -1,11 +1,40 @@
 <h1>Burgers</h1>
 <br>
-<h4>List of burgers</h4>
+<h4>List of burgers ready to be eaten</h4>
 
-<ul>
+<ol>
     {{#each burgers}}
-    <li>
-        <p>Burger type: {{burger_name}}</p>
-    </li>
+        {{#unless devoured}}
+            <li>
+                <p>Burger type: {{burger_name}} <span><button class="change-status" data-id="{{id}}" data-status="{{devoured}}">
+                Click to eat 
+            </button></span>
+                </p>
+            </li>
+        {{/unless}}
     {{/each}}
-</ul>
+</ol>
+<br>
+<h4>Burgers you have already eaten</h4>
+
+<ol>
+    {{#each burgers}}
+        {{#if devoured}}
+            <li>
+                <p>Burger type: {{burger_name}}</p>
+            </li>
+        {{/if}}
+    {{/each}}
+</ol>
+
+<br>
+<h2>Add a burger to the list</h2>
+<form class="burger-form">
+    <div class="new-Buger">
+        <label for="nb">New burger:</label>
+        <input type="text" id="new-burger" name="name">
+    </div>
+
+  <button type="submit">Add Burger</button>
+
+</form>

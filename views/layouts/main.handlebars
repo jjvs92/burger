@@ -9,4 +9,47 @@
 	<body>
 		{{{ body }}}
 	</body>
+
+	<script>
+		$(".burger-form").on("submit", function(event){
+			event.preventDefault();
+			console.log("submit button works");
+			var newBurger = {
+				name: $("#new-burger").val().trim(),
+				devoured: false
+			}
+			if(newBurger.name === ""){
+				return;
+			}else {
+				
+				$.ajax("/api/burgers",{
+					type: "POST",
+					data: newBurger
+				}).then(
+					function(){}
+				)
+				location.reload();
+			}
+		})
+
+		$(".change-status").on("click", function(event){
+			var id = $(this).data("id");
+			var devoured = $(this).data("status");
+			console.log(id);
+			console.log(devoured);
+			var newDevouredStatus = {
+				devoured: devoured
+			};
+			$.ajax("/api/burgers/" + id,{
+				type: "PUT",
+				data: newDevouredStatus
+			}).then(
+				function(){
+
+					location.reload();
+				}
+			)
+
+		})
+	</script>
 </html>
