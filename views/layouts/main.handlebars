@@ -38,14 +38,15 @@
 			console.log(id);
 			console.log(devoured);
 			var newDevouredStatus = {
-				devoured: devoured
+				devoured: true
 			};
+			console.log(newDevouredStatus);
 			$.ajax("/api/burgers/" + id,{
 				type: "PUT",
 				data: newDevouredStatus
 			}).then(
 				function(){
-
+					console.log("changed devoured status")
 					location.reload();
 				}
 			)

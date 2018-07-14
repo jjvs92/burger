@@ -58,10 +58,10 @@ var orm = {
         })
     },
 
-    update: function(tableInput, objColVals, condition, cb){
-        var queryString = "UPDATE " + tableInput + "SET " + objToSql(objColVals) + " WHERE " + condition;
+    update: function(burgerID, cb){
+        var queryString = "UPDATE burgers SET ? WHERE ?";
 
-        connection.query(queryString, function(err, res){
+        connection.query(queryString, [{devoured: true},{id: burgerID}], function(err, res){
             if(err){
                 throw err;
             } else{
