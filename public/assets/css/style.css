@@ -1,0 +1,27 @@
+#title{
+    color: blue;
+}
+
+.full-window{
+    background: #FCEE2B;
+    /* padding-bottom: 150px; */
+}
+
+#burger-image{
+    position: relative;
+    left: 520px;
+}
+
+#submit-burger{
+    position: relative;
+    left: 133px;
+}
+
+#new-burger{
+    position: relative;
+    left: 90px;
+}
+
+.list-text{
+    font-size: 20px;
+}
